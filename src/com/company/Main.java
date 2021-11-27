@@ -32,12 +32,12 @@ public class Main {
         while (true){
             x1 = b - (b - a) / PHI;
             x2 = a + (b - a) / PHI;
-            System.out.println("Шаг " + i + ": " + x1 + " " + x2);
             i++;
             if (f(x1) >= f(x2))
                 a = x1;
             else
                 b = x2;
+            System.out.println("Шаг " + i + ": " + ((a + b) / 2));
             if (Math.abs(b - a) < e)
                 break;
         }
@@ -52,12 +52,12 @@ public class Main {
         while (true){
             x1 = b - (b - a) / PHI;
             x2 = a + (b - a) / PHI;
-            System.out.println("Шаг " + i + ": " + x1 + " " + x2);
             i++;
             if (f(x1) <= f(x2))
                 a = x1;
             else
                 b = x2;
+            System.out.println("Шаг " + i + ": " + ((a + b) / 2));
             if (Math.abs(b - a) < e)
                 break;
         }
