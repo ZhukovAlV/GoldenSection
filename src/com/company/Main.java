@@ -14,11 +14,9 @@ public class Main {
 
     // Метод запуска определения минимум и максимум функции
     public static void main(String[] args) {
-        System.out.print("Максимум фунции равен ");
         System.out.println(findMin(a, b, EPSILON));
 
-        System.out.print("Минимум фунции равен ");
-        System.out.println(findMin(a, b, EPSILON));
+        System.out.println(findMax(a, b, EPSILON));
     }
 
     // Здесь прописываем нашу функцию
@@ -28,10 +26,14 @@ public class Main {
 
     // Находим минимум функции
     private static double findMin(double a, double b, double e){
+        int i = 1;
         double x1, x2;
+        System.out.println("Поиск минимума функции");
         while (true){
             x1 = b - (b - a) / PHI;
             x2 = a + (b - a) / PHI;
+            System.out.println("Шаг " + i + ": " + x1 + " " + x2);
+            i++;
             if (f(x1) >= f(x2))
                 a = x1;
             else
@@ -44,10 +46,14 @@ public class Main {
 
     // Находим максимум функции
     private static double findMax(double a, double b, double e){
+        int i = 1;
         double x1, x2;
+        System.out.println("Поиск максимума функции");
         while (true){
             x1 = b - (b - a) / PHI;
             x2 = a + (b - a) / PHI;
+            System.out.println("Шаг " + i + ": " + x1 + " " + x2);
+            i++;
             if (f(x1) <= f(x2))
                 a = x1;
             else
