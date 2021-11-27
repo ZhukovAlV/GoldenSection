@@ -26,7 +26,7 @@ public class Main {
 
     // Находим минимум функции
     private static double findMin(double a, double b, double e){
-        int i = 1;
+        int i = 0;
         double x1, x2;
         System.out.println("Поиск минимума функции");
         while (true){
@@ -46,7 +46,7 @@ public class Main {
 
     // Находим максимум функции
     private static double findMax(double a, double b, double e){
-        int i = 1;
+        int i = 0;
         double x1, x2;
         System.out.println("Поиск максимума функции");
         while (true){
