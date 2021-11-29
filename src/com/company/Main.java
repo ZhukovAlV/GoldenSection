@@ -14,9 +14,11 @@ public class Main {
 
     // Метод запуска определения минимум и максимум функции
     public static void main(String[] args) {
-        System.out.println(findMin(a, b, EPSILON));
+        String min = String.format("%.8f", findMin(a, b, EPSILON));
+        System.out.println(min);
 
-        System.out.println(findMax(a, b, EPSILON));
+        String max = String.format("%.8f", findMax(a, b, EPSILON));
+        System.out.println(max);
     }
 
     // Здесь прописываем нашу функцию
@@ -26,41 +28,77 @@ public class Main {
 
     // Находим минимум функции
     private static double findMin(double a, double b, double e){
-        int i = 0;
-        double x1, x2;
         System.out.println("Поиск минимума функции");
+        int i = 1;
+        double x1, x2;
         while (true){
+            System.out.println("Шаг №" + i);
+
+            System.out.println("Вычисляем 2 точки на интервале: " + String.format("%.8f", a) + " " + String.format("%.8f", b));
             x1 = b - (b - a) / PHI;
+            System.out.println("x1 = " +  String.format("%.8f", x1));
             x2 = a + (b - a) / PHI;
-            i++;
-            if (f(x1) >= f(x2))
+            System.out.println("x2 = " +  String.format("%.8f", x2));
+
+            System.out.println("Вычисляем значение функции в этих точках");
+            System.out.println("f(x1) = " +  String.format("%.8f", f(x1)));
+            System.out.println("f(x2) = " +  String.format("%.8f", f(x2)));
+            if (f(x1) >= f(x2)) {
+                System.out.println("f(x1) >= f(x2), поэтому точке а присваиваем значение " + String.format("%.8f", x1));
                 a = x1;
-            else
+            }
+            else {
+                System.out.println("f(x1) < f(x2), поэтому точке b присваиваем значение " + String.format("%.8f", x2));
                 b = x2;
-            System.out.println("Шаг " + i + ": " + ((a + b) / 2));
-            if (Math.abs(b - a) < e)
+            }
+
+            // Если между a и b разница меньше погрешности останавливаем программу
+            if (Math.abs(b - a) < e) {
+                System.out.println("Разница между а и б составляет меньше " + e);
+                System.out.println("Выводим результат");
                 break;
+            }
+            i++;
         }
+        // Возвращаем результат как середину интервала [a,b]:
         return (a + b) / 2;
     }
 
     // Находим максимум функции
     private static double findMax(double a, double b, double e){
-        int i = 0;
-        double x1, x2;
         System.out.println("Поиск максимума функции");
+        int i = 1;
+        double x1, x2;
         while (true){
+            System.out.println("Шаг №" + i);
+
+            System.out.println("Вычисляем 2 точки на интервале: " + String.format("%.8f", a) + " " + String.format("%.8f", b));
             x1 = b - (b - a) / PHI;
+            System.out.println("x1 = " + String.format("%.8f", x1));
             x2 = a + (b - a) / PHI;
-            i++;
-            if (f(x1) <= f(x2))
+            System.out.println("x2 = " + String.format("%.8f", x2));
+
+            System.out.println("Вычисляем значение функции в этих точках");
+            System.out.println("f(x1) = " + String.format("%.8f", f(x1)));
+            System.out.println("f(x2) = " + String.format("%.8f", f(x2)));
+            if (f(x1) <= f(x2)) {
+                System.out.println("f(x1) <= f(x2), поэтому точке а присваиваем значение " + String.format("%.8f", x1));
                 a = x1;
-            else
+            }
+            else {
+                System.out.println("f(x1) < f(x2), поэтому точке b присваиваем значение " + String.format("%.8f", x2));
                 b = x2;
-            System.out.println("Шаг " + i + ": " + ((a + b) / 2));
-            if (Math.abs(b - a) < e)
+            }
+
+            // Если между a и b разница меньше погрешности останавливаем программу
+            if (Math.abs(b - a) < e) {
+                System.out.println("Разница между а и б составляет меньше " + e);
+                System.out.println("Выводим результат");
                 break;
+            }
+            i++;
         }
+        // Возвращаем результат как середину интервала [a,b]
         return (a + b) / 2;
     }
 }
